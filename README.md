@@ -4,9 +4,9 @@ To get started, clone this codebase, and in the project's directory in the termi
 
 ```
 bundle
-rake db:create
-rake db:migrate
-rake db:seed
+rails db:create
+rails db:migrate
+rails db:seed
 ```
 
 You also need to create an application.yml file in the `config` folder. You must ask your project leader for the code for this file, as it contains sensitive information that cannot be published on Github.
