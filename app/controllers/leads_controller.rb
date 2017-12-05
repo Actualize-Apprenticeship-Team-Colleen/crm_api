@@ -111,6 +111,18 @@ class LeadsController < ApplicationController
     render nothing: true
   end
 
+  def auto_text
+    @lead = Lead.find_by(id: params[:id])
+    @client = Twilio::REST::Client.new
+    @client.messages.create(
+      from: ENV['TWILIO_PHONE_NUMBER'],
+      to: params[:phone],
+      body: "Hi, #{@lead.first_name}! This is Rena from the Actualize coding bootcamp. Do you have a minute to talk?"
+    )
+
+    render nothing: true
+  end
+
   def no_leads
   end
 
