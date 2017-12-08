@@ -52,6 +52,13 @@ class LeadsController < ApplicationController
 
   def update
     @lead = Lead.find_by(id: params[:id])
+    latest_outreach = params["latest_outreach"]
+    puts latest_outreach
+    if latest_outreach != " "
+      Outreach.create(
+        content: latest_outreach,
+        lead_id: @lead.id)
+    end
     if @lead.update(lead_params)    
       flash[:success] = "Lead saved!"
       redirect_to '/'
