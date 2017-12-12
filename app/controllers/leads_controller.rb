@@ -54,7 +54,7 @@ class LeadsController < ApplicationController
     @lead = Lead.find_by(id: params[:id])
     latest_outreach = params["latest_outreach"]
     puts latest_outreach
-    if latest_outreach != " "
+    unless latest_outreach.blank?  
       Outreach.create(
         content: latest_outreach,
         lead_id: @lead.id)
