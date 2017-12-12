@@ -124,10 +124,11 @@ class LeadsController < ApplicationController
     @client.messages.create(
       from: ENV['TWILIO_PHONE_NUMBER'],
       to: params[:phone],
-      body: "Hi, #{@lead.first_name}! This is Rena from the Actualize coding bootcamp. Do you have a minute to talk?"
+      body: params[:body]
     )
 
-    render nothing: true
+    flash[:success] = "Auto text sent!"
+    redirect_to '/'
   end
 
   def no_leads
