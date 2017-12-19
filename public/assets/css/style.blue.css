@@ -1106,6 +1106,7 @@ footer.main-footer {
   bottom: 0;
   background: #222;
   padding: 10px 0;
+  margin-top: 20px;
 }
 
 footer.main-footer p {

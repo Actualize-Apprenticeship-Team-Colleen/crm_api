@@ -195,16 +195,20 @@
                 <%= f.text_area :rep_notes, class: 'form-control' %>
               </div>
             </div>
+            <div class="form-group">
+              <div class="i-checks">
+              <div class="col-md-6" id="update-btn-col">
+                  <%= f.submit :next, {value: @call_mode ? "Process and Move On to Next Lead" : "Update", class: 'btn btn-primary btn-lg update-btn'} %>
+                </div>
+              </div>
+            </div>
             <div>
 
         <% end %>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-6" id="update-btn-col">
-    <%= f.submit :next, {value: @call_mode ? "Process and Move On to Next Lead" : "Update", class: 'btn btn-primary btn-lg update-btn'} %>
-  </div>
-</div>
+
+<!-- </div> -->
 <% end %>
 
