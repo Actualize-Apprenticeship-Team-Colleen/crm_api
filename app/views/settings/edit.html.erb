@@ -1,0 +1,15 @@
+<h3> Settings </h3>
+
+<%= form_tag "/settings", method: :patch do %>
+
+
+  <h3> Auto-text message </h3> 
+
+  <p> Complete the message: </p>
+  <p> Hi, LEAD NAME! </p>
+  <%= text_field_tag 'auto_text' %>
+  <br/>
+  
+  <%= submit_tag "Save", {class: "btn btn-success"} %>
+  
+<%end%>
