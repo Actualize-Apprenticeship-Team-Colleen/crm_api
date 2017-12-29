@@ -26,8 +26,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="lead in leads">
-                <td>{{ moment(lead.created_at).format('dddd MMM Do YYYY, h:mm a') }}</td>
+              <tr v-for="lead in leads" v-on:click="toggleEvent(lead)">
+                <td>{{ moment(lead.created_at).format('dddd MMM Do YYYY, h:mm a') }}<div v-bind:class="{show: false}" v-for="event in lead.events">{{event.name}}</div></td>
                 <td>{{ lead.first_name }}</td>
                 <td>{{ lead.last_name }}</td>
                 <td><a v-bind:href="'/leads/' + lead.id + '/edit'">{{ lead.email }}</a></td>
