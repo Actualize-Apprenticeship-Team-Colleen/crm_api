@@ -25,9 +25,28 @@
                 <th>Call Converter Notes</th>
               </tr>
             </thead>
-            <tbody>
-              <tr v-for="lead in leads" v-on:click="toggleEvent(lead)">
-                <td>{{ moment(lead.created_at).format('dddd MMM Do YYYY, h:mm a') }}<div v-bind:class="{show: false}" v-for="event in lead.events">{{event.name}}</div></td>
+
+            <tbody v-for="lead in leads">
+            <tr class="accordion-toggle"  data-toggle="collapse" data-target="#7">
+            <td>{{ moment(lead.created_at).format('dddd MMM Do YYYY, h:mm a') }}</td>
+                <td>{{ lead.first_name }}</td>
+                <td>{{ lead.last_name }}</td>
+                <td><a v-bind:href="'/leads/' + lead.id + '/edit'">{{ lead.email }}</a></td>
+                <td>{{ lead.phone }}</td>
+                <td>{{ moment(lead.appointment_date).format('dddd MMM Do YYYY, h:mm a') }}</td>
+                <td>{{ lead.notes }}</td>
+            </tr>
+            <tr>
+            <td></td>
+            <td colspan="3">
+            <div id="7" class="collapse in">
+                        Details 1
+            Details 2
+            Details 3
+            </div></td>
+            </tr>
+              <!-- <tr v-for="lead in leads" class="accordion-toggle"  data-toggle="collapse" data-target="#collapseOne">
+                <td>{{ moment(lead.created_at).format('dddd MMM Do YYYY, h:mm a') }}</td>
                 <td>{{ lead.first_name }}</td>
                 <td>{{ lead.last_name }}</td>
                 <td><a v-bind:href="'/leads/' + lead.id + '/edit'">{{ lead.email }}</a></td>
@@ -35,6 +54,15 @@
                 <td>{{ moment(lead.appointment_date).format('dddd MMM Do YYYY, h:mm a') }}</td>
                 <td>{{ lead.notes }}</td>
               </tr>
+              <tr>
+              <td></td>
+              <td colspan="3">
+              <div id="collapseOne" class="collapse">
+                          Details 1
+              Details 2
+              Details 3
+              </div></td>
+              </tr> -->
             </tbody>
           </table>
         </div>
