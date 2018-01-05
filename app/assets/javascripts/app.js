@@ -12,7 +12,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
     },
     mounted: function() {
       $.get('/api/v1/leads.json').success(function(response) {
-        console.log(this);
+        // loop through all leads
+        // add showEvents = false to each lead
+        debugger
+        for (var i = 0; i < response.length; i++) {
+          Vue.set(response[i],"showEvents", false);
+        }
+        console.log("HELLO", response);
         this.leads = response;
       }.bind(this));
     },
@@ -30,6 +36,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         return firstName && lastName && email
 
+      },
+      toggleEvent: function(lead) {
+        // console.log(lead);
+        lead.isSeen = !lead.isSeen
       },
     },
     computed: {
