@@ -3,9 +3,9 @@ class LeadsController < ApplicationController
 
   def index
     @all_leads_active = "active"
-    @leads = Lead.where("phone <> ''").order(created_at: :desc)
+    @leads = Lead.where(id: [1]).includes(:events).page params[:page]
     # If someone used the search box:
-    @leads = Lead.where("first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ? OR phone ILIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%").order(created_at: :desc) if params[:search]
+    # @leads = Lead.where("first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ? OR phone ILIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%").order(created_at: :desc) if params[:search]
   end
 
   # This is a special feature for call converters who can just call lead after

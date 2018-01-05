@@ -1,7 +1,7 @@
 class Api::V1::LeadsController < ApplicationController
 
   def index
-    @leads = Lead.all
+    @leads = Lead.where(id: [*1..50]).includes(:events).page params[:page]
     render "index.json.jbuilder"
   end
 
