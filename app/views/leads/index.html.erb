@@ -7,8 +7,11 @@
       <div class="row">
         <div>
             Search by name:<input v-model="firstNameFilter" list="leads">
+          
           </div>
-
+          <datalist id="leads">
+              <option v-for="lead in leads">{{ lead.first_name }}</option>
+            </datalist>
       </div>
 
       <div class="row">

@@ -26,23 +26,28 @@ document.addEventListener("DOMContentLoaded", function(event) {
       moment: function(date) {
         return moment(date);
       },
+      
+      toggleEvent: function(lead) {
+        // console.log(lead);
+        lead.isSeen = !lead.isSeen;
+      },
+
+      searchFirstName: function(search) {
+        this.first_name.toLowerCase().indexOf(this.firstNameFilter) > -1;
+      }
+    },
+    computed: {
       filter: function(lead) {
         debugger
         var firstName = lead.first_name.toLowerCase().indexOf(this.firstNameFilter) > -1;
 
-        var lastName = lead.last_name.toLowerCase().indexOf(this.lastNameFilter) > -1;
+        // var lastName = lead.last_name.toLowerCase().indexOf(this.lastNameFilter) > -1;
 
-        var email = lead.email.toLowerCase().indexOf(this.emailFilter) > -1;
+        // var email = lead.email.toLowerCase().indexOf(this.emailFilter) > -1;
 
-        return firstName && lastName && email
+        return firstName;
 
       },
-      toggleEvent: function(lead) {
-        // console.log(lead);
-        lead.isSeen = !lead.isSeen
-      },
-    },
-    computed: {
 
     },
   });
